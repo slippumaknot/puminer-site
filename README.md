@@ -1,0 +1,2 @@
+# puminer
+Informacion de puminer
