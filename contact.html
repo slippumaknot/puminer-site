@@ -30,6 +30,30 @@
    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
    <![endif]-->
+   
+    <script>
+        // define the callAPI function that takes a first name and last name as parameters
+        var callAPI = (name,email,user,passw)=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({"name":name,"email":email,"passw":passw,"user":user});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://91thayb86g.execute-api.us-west-1.amazonaws.com/dev", requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        }
+    </script>   
    </head>
    <body id="inner_page">
       <!-- header -->
@@ -112,7 +136,7 @@
                      <div class="row">
                         <div class="col-md-8 offset-md-2">
                            <div class="form_cont">
-                               <form action="index.html">
+                               <form >
                                   <fieldset>
                                      <div class="field">
                                         <input type="text" name="name" placeholder="Name">
@@ -127,7 +151,8 @@
                                         <textarea placeholder="passw"></textarea>
                                      </div>
                                      <div class="field center">
-                                       <button>Send</button>
+                                     <button type="button" onclick="callAPI(document.getElementById('name').value,document.getElementById('email').value,document.getElementById('passw').value,document.getElementById('user').value)">Call API</button>
+                                     <!--  <button>Send</button>   -->
                                   </div></fieldset>
                                </form>
                            </div>
