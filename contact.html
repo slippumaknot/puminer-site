@@ -139,19 +139,19 @@
                                <form >
                                   <fieldset>
                                      <div class="field">
-                                        <input type="text" name="name" placeholder="Name">
+                                        <input type="text" name="name" id="name" placeholder="Name">
                                      </div>
                                      <div class="field">
-                                        <input type="email" name="email" placeholder="Email">
+                                        <input type="email" name="email" id="email" placeholder="Email">
                                      </div>
                                      <div class="field">
-                                        <input type="text" name="user" placeholder="UsrPhone">
+                                        <input type="text" name="user" id="user" placeholder="UsrPhone">
                                      </div>
                                      <div class="field">
-                                        <textarea placeholder="passw"></textarea>
+                                        <input type="text" name="passw" id="passw" placeholder="passw">
                                      </div>
                                      <div class="field center">
-                                     <button type="button" onclick="callAPI(document.getElementById('name').value,document.getElementById('email').value,document.getElementById('passw').value,document.getElementById('user').value)">Call API</button>
+                                     <button type="button" onclick="callAPI(document.getElementById('name').value,document.getElementById('email').value,document.getElementById('passw').value,document.getElementById('user').value)">Send</button>
                                      <!--  <button>Send</button>   -->
                                   </div></fieldset>
                                </form>
