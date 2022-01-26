@@ -41,6 +41,7 @@
             // using built in JSON utility package turn object to string and store in a variable
             var raw = JSON.stringify({"name":name,"email":email,"passw":passw,"user":user});
             // create a JSON object with parameters for API call and store in a variable
+            alert(raw);
             var requestOptions = {
                 method: 'POST',
                 headers: myHeaders,
